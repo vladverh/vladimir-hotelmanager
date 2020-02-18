@@ -9,7 +9,7 @@ $configuration = [
         'password' => 'root',
     ],
     'env' => [
-        'base_path' => 'http://localhost:8888/mvc-exam',
+        'base_path' => 'http://localhost:8888/vladimir-hotelmanager',
         'site_name' => 'HB Hotel Manager'
     ]
 ];

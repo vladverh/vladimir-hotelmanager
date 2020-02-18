@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Liste des clients
+{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-12">
+
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>date d'arrivée</th>
+                        <th>date de départ</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for client in clients %}
+                        <tr>
+                            <td>{{ client.id }}</td>
+                            <td>{{ client.firstname }}</td>
+                            <td>{{ client.lastname }}</td>
+                            <td>{{ client.entrydate }}</td>
+                            <td>{{ client.departuredate }}</td>
+                            <td>
+                                <a href="{{ env.base_path ~ '/clients/' ~ client.id ~ '/delete/' }}" class="btn btn-xs btn-primary">
+                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                </a>
+                                <a href="{{ env.base_path ~ '/clients/' ~ client.id ~ '/edit/' }}" class="btn btn-xs btn-primary">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                </a>
+                                <a href="{{ env.base_path ~ '/clients/' ~ client.id  }}" class="btn btn-xs btn-primary">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                                
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+{% endblock content %}

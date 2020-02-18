@@ -10,14 +10,14 @@ Gestionnaire d'hôtels Hb-HotelManager
 <a href="">
     <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste
 </a>
-<!-- CAS 1 : La chambre est innoccupée -->
+{% if room.clientid is null %}
 <div class="card mb-3">
     <div class="card-header">
         <strong>Gestion de la chambre # {{room.number}}</strong> <span class="badge badge-success">Libre</span>
     </div>
     <div class="card-body"> 
 
-        <form action="">
+        <form action="{{env.base_path ~ '/rooms/' ~ room.id ~ '/edit'}}" method="post">
 
             <div class="form-group">
                 <label for="formClient">Ajouter un client</label>
@@ -26,10 +26,12 @@ Gestionnaire d'hôtels Hb-HotelManager
                     <option value="">John Doe</option>
                 </select>
             </div>
-
+    
             <button class="btn btn-primary">Ajouter le client à la chambre</button>
 
         </form>
+
+
     </div>
     <div class="card-footer">
         <a href="#" class="btn btn-danger">
@@ -39,7 +41,7 @@ Gestionnaire d'hôtels Hb-HotelManager
 </div>
 
 
-<!-- CAS 2 : La chambre est occupée -->
+{% else %}
 
 <div class="card">
     <div class="card-header">
@@ -56,4 +58,6 @@ Gestionnaire d'hôtels Hb-HotelManager
         </a>
     </div>
 </div>
+
+{% endif %}
 {% endblock %}

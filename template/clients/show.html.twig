@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+Gestionnaire de {{client.lastname}}{{client.firstname}}
+{% endblock %}
+
+{% block content %}
+
+
+<a href="{{ env.base_path ~ '/clients/all' }}">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i> retour à la liste
+</a>
+<div class="card mb-3">
+    <div class="card-header">
+        <strong>Gestion de  {{client.lastname}}{{client.firstname}}</strong> 
+    </div>
+    <div class="card-body"> 
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>date d'arrivée</th>
+                    <th>date de départ</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.firstname }}</td>
+                    <td>{{ client.lastname }}</td>
+                    <td>{{ client.entrydate }}</td>
+                    <td>{{ client.departuredate }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+            <button class="btn btn-primary">Ajouter le client à la chambre</button>
+
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
